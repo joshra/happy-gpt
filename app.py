@@ -5,7 +5,6 @@ from linebot.models import *
 import os
 import random
 
-
 app = Flask(__name__)
 
 line_bot_api = LineBotApi(os.environ['CHANNEL_ACCESS_TOKEN'])
@@ -25,6 +24,7 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
+    lunch_options = ['便當', '麵類', '飯類', '燉飯', '三明治']
     #message = TextSendMessage(text=event.message.text)
     message = random.choice(lunch_options)
     line_bot_api.reply_message(event.reply_token, message)
