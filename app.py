@@ -26,7 +26,7 @@ def callback():
 def handle_message(event):
     lunch_options = ['便當', '麵類', '飯類', '燉飯', '三明治']
     #message = TextSendMessage(text=event.message.text)
-    message = TextSendMessage(random.choice(lunch_options))
+    message = TextSendMessage(text=random.choice(lunch_options))
     line_bot_api.reply_message(event.reply_token, message)
 
 import os
